@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matches-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matches
+  template:
+    metadata:
+      labels:
+        app: matches
+    spec:
+      containers:
+        - name: matches
+          image: pelagiavlas/labassignimentdo:1.0
+          ports:
+            - containerPort: 80
